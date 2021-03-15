@@ -9,6 +9,8 @@ The searching is done by first extracting features from video frames using the C
 getting the features for the search query through the CLIP text encoder. The features are then matched by similarity
 and the top results are returned, if above a set threshold.
 
+To allow easy use of the CLIFS backend, a simple web server running django is used to provide a interface to the search engine. 
+
 
 ## Examples
 To give an idea of the power of this model, a few examples are shown below, with the search query in bold and the result below.
