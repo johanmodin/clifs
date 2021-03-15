@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+
+<form action="{% url 'search' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>{{ form.non_field_errors }}</p>
+    <p>
+        {{ form.query.errors }}
+        {{ form.query }}
+        <input type="submit" value="Search"/>
+    </p>
+</form>
+
+<style>
+.figure{ /* Describes only view representation. */
+    display: inline-block;
+}
+
+.thumbnail{
+    background: lightgray;
+    width: 250px;
+    height: 200px;
+}
+</style>
+
+{% block body %}
+	{% if images %}
+        {% with num_results=images|length %}
+            <h5>{{ num_results }} result(s)</h5>
+        {% endwith %}
+		{% for image in images %}
+            <img class="rufs_image" id="myImg" src="{{ MEDIA_URL }}{{ image.image_data }}" width="300" height="200" alt="Video: {{ image.title }} - Score: {{ image.score|floatformat:3 }} - Second: {{ image.time }}">
+            <div id="myModal" class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content" id="modalImg">
+              <div id="caption"></div>
+            </div>
+
+
+			{% if forloop.counter|divisibleby:3 %}
+				<div class="clear"></div>
+			{% endif %}
+		{% endfor %}
+	{% else %}
+		<p>No image available.</p>
+	{% endif %}
+{% endblock body %}
+
+<script>
+    // create references to the modal...
+var modal = document.getElementById('myModal');
+// to all images -- note I'm using a class!
+var images = document.getElementsByClassName('rufs_image');
+// the image in the modal
+var modalImg = document.getElementById("modalImg");
+// and the caption in the modal
+var captionText = document.getElementById("caption");
+
+// Go through all of the images with our custom class
+for (var i = 0; i < images.length; i++) {
+  var img = images[i];
+  // and attach our click listener for this image.
+  img.onclick = function(evt) {
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+}
+
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+</script>
+
+{% endblock %}

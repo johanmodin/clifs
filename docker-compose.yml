@@ -1,0 +1,23 @@
+version: "3.3"
+
+services:
+  web:
+    build: www
+    command: /clifs/entrypoint.sh
+    volumes:
+      - ./www:/clifs
+      - ./data/output:/clifs/media/results
+    ports:
+      - "8000:8000"
+
+  search-engine:
+    container_name: search-engine
+    build: search
+    command: python server.py
+    environment:
+      - INPUT_DIR=/app/data/input
+      - OUTPUT_DIR=/app/data/output
+    volumes:
+      - ./data/input:/app/data/input
+      - ./data/output:/app/data/output
+
