@@ -4,7 +4,7 @@
 ### Overview
 
 CLIFS allows free text searching through videos for video frames with matching contents.
-This is done using OpenAI's CLIP model, which is trained to match images with corresponding captions.
+This is done using [OpenAI's CLIP](https://openai.com/blog/clip/) model, which is trained to match images with corresponding captions.
 The searching is done by first extracting features from video frames using the CLIP image encoder and then
 getting the features for the search query through the CLIP text encoder. The features are then matched by similarity
 and the top results are returned, if above a set threshold.
@@ -12,7 +12,7 @@ and the top results are returned, if above a set threshold.
 
 ### Examples
 To give an idea of the power of this model, a few examples are provided here.
-These search queries are done against the 2 minute Sherbrooke video from the UrbanTracker Dataset.
+These search queries are done against the 2 minute Sherbrooke video from the [UrbanTracker Dataset](https://www.jpjodoin.com/urbantracker/dataset.html).
 Only the top image result for each query is shown. Note that the model is in fact quite capable of OCR.
 
 A truck with the text "odwalla"
