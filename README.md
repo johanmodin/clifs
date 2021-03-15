@@ -47,7 +47,7 @@ Only the top image result for each query is shown. Note that the model is in fac
 docker-compose build
 ```
 
-2. Start the search engine and web server through docker-compose:
+3. Start the search engine and web server through docker-compose:
 ```sh
 docker-compose up
 ```
@@ -59,7 +59,7 @@ docker-compose -f docker-compose-gpu.yml up
 ```
  
 
-3. Once the features for the files in the `data/input` directory have been encoded, as shown in the log, navigate to 127.0.0.1:5000 and search away.
+4. Once the features for the files in the `data/input` directory have been encoded, as shown in the log, navigate to [127.0.0.1:8000](http://127.0.0.1:8000) and search away.
 
 
 
