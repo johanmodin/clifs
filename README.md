@@ -4,7 +4,7 @@
 ## Overview
 
 CLIFS is a proof-of-concept for free text searching through videos for video frames with matching contents.
-This is done using [OpenAI's CLIP](https://openai.com/blog/clip/) model, which is trained to match images with corresponding captions.
+This is done using [OpenAI's CLIP](https://openai.com/blog/clip/) model, which is trained to match images with the corresponding captions and vice versa.
 The searching is done by first extracting features from video frames using the CLIP image encoder and then
 getting the features for the search query through the CLIP text encoder. The features are then matched by similarity
 and the top results are returned, if above a set threshold.
