@@ -38,28 +38,24 @@ Only the top image result for each query is shown. Note that the model is in fac
 ======
 
 ## Setup
-1. Run the setup.sh script to setup the folders and optionally downloading a video file for testing:
+1. Run the setup.sh script to setup the folders and optionally download a video file for testing:
 ```sh
 ./setup.sh
 ```
 
-2. Build the search engine and the web server containers:
-```sh
-docker-compose build
-```
+2. Put your own video files that you want to index in the `data/input` directory
 
-3. Start the search engine and web server through docker-compose:
+3. Build and start the search engine and web server containers through docker-compose:
 ```sh
-docker-compose up
+docker-compose build && docker-compose up
 ```
 
 Optionally, a docker-compose file with GPU support can be used if the host environment has a NVIDIA GPU and is setup for docker GPU support:
 
 ```sh
-docker-compose -f docker-compose-gpu.yml up
+docker-compose build && docker-compose -f docker-compose-gpu.yml up
 ```
  
-
 4. Once the features for the files in the `data/input` directory have been encoded, as shown in the log, navigate to [127.0.0.1:8000](http://127.0.0.1:8000) and search away.
 
 
