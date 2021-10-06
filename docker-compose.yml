@@ -13,7 +13,7 @@ services:
   search-engine:
     container_name: search-engine
     build: search
-    command: python server.py
+    command: python3 server.py
     environment:
       - INPUT_DIR=/app/data/input
       - OUTPUT_DIR=/app/data/output

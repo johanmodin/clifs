@@ -19,7 +19,7 @@ class CLIFS:
 
         # Choose device and load the chosen model
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.model, self.preprocess = clip.load(os.getenv('MODEL'), self.device)
+        self.model, self.preprocess = clip.load(os.getenv('MODEL'), self.device, jit=False)
 
         self.image_features = None
         self.feature_idx_to_video = []
