@@ -30,7 +30,7 @@ class CLIFS:
             self.add_video(f)
 
 
-    def add_video(self, path, batch_size=128, ms_between_features=1000,
+    def add_video(self, path, batch_size=512, ms_between_features=1000,
                   patch_size=360):
         # Calculates features from video images.
         # Loops over the input video to extract every frames_between_features
