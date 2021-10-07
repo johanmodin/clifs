@@ -21,6 +21,8 @@ RUN pip3 install --upgrade git+https://github.com/openai/CLIP.git
 
 # Preload the chosen model -- device doesn't matter here
 RUN python3 -c "import clip; clip.load('$MODEL', device='cpu')"
+
+# Create a symlink for python -> python3 since the base binary doesn't exist in this installation
 RUN ln -sf /usr/bin/python3 /usr/bin/python
 COPY app/ /app
 CMD ["python", "clifs.py"]
