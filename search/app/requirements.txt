@@ -1,7 +1,6 @@
 ftfy
 regex
 tqdm
-git+https://github.com/openai/CLIP.git@fd6c1443c2810c207fc6ea0cea10db6abf86e25d
 opencv-python
 patchify
 flask
